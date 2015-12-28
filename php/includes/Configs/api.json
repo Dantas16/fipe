@@ -1,0 +1,18 @@
+[
+  {
+    "app": "AppSpot",
+    "main_url": "http://fipeapi.appspot.com/api/1/carros/",
+    "marcas_url": "marcas.json",
+    "modelos_url": "veiculos/ID.json",
+    "ano_url": "veiculo/IDMARCA/IDMODELO.json",
+    "valor_url": "veiculo/IDMARCA/IDMODELO/IDANO.json"
+  },
+  {
+    "app" : "ProfWeb",
+    "main_url" : "http://webservices.profissionaisdaweb.com.br/fipe/",
+    "marcas_url" : "marcas-carro.xml",
+    "modelos_url" : "ID-modelos-carro.xml",
+    "ano_url" : "IDMODELO-precos-carro.xml",
+    "valor_url" : "IDMODELO-precos-carro.xml"
+  }
+]

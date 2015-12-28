@@ -1,0 +1,25 @@
+#Habilita o sistema de reescritura de URL
+RewriteEngine On
+
+#A regra não será aplicável a arquivos acessados diretamente
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#A regra não será apicável a pastas
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Regra de reescrita", o que diz para o Apache que nessa linha teremos uma regra para ser verificada e que pode reescrever a URL do acesso.
+# O circunflexo "^" significa inicio e o cifrão "$" significa fim e a  parte /? significa uma barra opcional $1 ou index.php informamos para o servidor qual arquivo atenderá pela requisição.
+#INICIAR (QUALQUER CARACTER E QUALQUER QUANTIDADE) TERMINAR
+RewriteRule .* index.php?url=$0 [PT,L]
+
+#Bloqueia qualquer script que tentar usar base64 dentro da url
+RewriteCond %{QUERY_STRING} base64_encode[^(]*\([^)]*\) [OR]
+
+#Bloqueia qualquer tentativa de usar a tag <script> na url
+RewriteCond %{QUERY_STRING} (<|%3C)([^s]*s)+cript.*(>|%3E) [NC,OR]
+
+#Bloqueia qualquer tentativa de setar as variáveis globais do php via url
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+
+#Bloqueia qualquer script que tentar modificar a variável _REQUEST via url
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
