@@ -44,6 +44,3 @@ A aplicação foi desenvolvida visando, também, obter dados de diversos webserv
     Exemplos:<br>
       1. Obtém o valor para um veículo com MARCAID = 15, MODELOID = 16, ANOID = 5<br>
 <br><br>
-
-**www.5gti.com.br**<br>
-*contato@5gti.com.br*<br>
